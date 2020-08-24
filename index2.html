@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <style>
+  .container{
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .mainArea {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .imageArea {
+    width: 50%;
+    height: auto;
+  }
+
+  .textArea {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .item {
+    width: 50%;
+    height: auto;
+  }
+
+  #blueText{
+    display: flex;
+    justify-content: flex-end;
+    width: 1;
+  }
+
+  .emptyArea{
+    width: 50%;
+    height: auto;
+  }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="mainArea">
+      <img src="imgs/figure1_yellowSide.png" class="imageArea" alt="" id="yellowSideFullColor">
+      <img src="imgs/figure1_blueSide.png" class="imageArea" alt="" id="blueSideFullColor">
+    </div>
+
+    <div class="textArea">
+      <img src="imgs/figure1_yellowText.png" class="item" alt="" id="yellowText">
+      <div class="emptyArea"> </div>
+      <img src="imgs/figure1_blueText.png" class="item" alt="" id="blueText">
+    </div>
+
+
+  </div>
+
+
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script>
+  $(document).ready(function(){
+
+  //Hide text blocks
+    $('#yellowText').hide()
+    $('#blueText').hide()
+
+  //When hovering over yellowSide, show yellowText swap other side with gray
+    $('#yellowSideFullColor').mouseover(function(){
+      $('#yellowText').show()
+      $('#blueSideFullColor').attr('src','imgs/figure1_grayRight.png')
+    });
+
+  //When not hovering, text hides
+  $('#yellowSideFullColor').mouseout(function(){
+    $('#yellowText').hide()
+    $('#blueSideFullColor').attr('src','imgs/figure1_blueSide.png')
+  });
+
+  //When hovering over blueSide, show blueText and swap other side with gray
+    $('#blueSideFullColor').mouseover(function(){
+      $('#blueText').show()
+      $('#yellowSideFullColor').attr('src','imgs/figure1_grayLeft.png')
+    });
+
+  //When not hovering, text hides
+  $('#blueSideFullColor').mouseout(function(){
+    $('#blueText').hide()
+    $('#yellowSideFullColor').attr('src','imgs/figure1_yellowSide.png')
+  });
+
+
+
+  });
+</script>
+
+
+</body>
+
+</html>
