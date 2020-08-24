@@ -18,10 +18,11 @@
   width: 50%;
   height: auto;
 }
-
-/* .start{
+ 
+.start{
   justify-content: flex-start;
 }
+
 .end{
   justify-content: flex-end;
-} */
+}
