@@ -1,3 +1,27 @@
-img{
-  width: 100%;
+.mainArea {
+  display: flex;
+  flex-direction: row;
 }
+
+.imageArea {
+  width: 50%;
+  height: auto;
+}
+
+.textArea {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.item {
+  width: 50%;
+  height: auto;
+}
+
+/* .start{
+  justify-content: flex-start;
+}
+.end{
+  justify-content: flex-end;
+} */
