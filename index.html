@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <style>
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .mainArea {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .buttonArea {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+
+    .buttons {
+      display: flex;
+      width: 33%;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .buttons p a {
+      border-radius: 2px;
+      padding: 10px;
+      font-size: 16px;
+      text-align: center;
+      background-color: black;
+      color: white;
+      text-decoration: none;
+      font-family: 'Acumin Pro Condensed'
+    }
+
+    .buttonless p a {
+      border-radius: 2px;
+      padding: 10px;
+      font-size: 16px;
+      text-align: center;
+      background-color: black;
+      color: white;
+      text-decoration: none;
+      font-family: 'Acumin Pro Condensed'
+    }
+
+    .imageArea {
+      width: 100%;
+    }
+
+    .textArea {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .item {
+      width: 100%;
+      height: auto;
+    }
+
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="mainArea">
+      <img src="imgs/figure2_leftFullColor.png" class="imageArea" alt="" id="leftColor">
+      <img src="imgs/figure2_middleFullColor.png" class="imageArea" alt="" id="middleColor">
+      <img src="imgs/figure2_rightFullColor.png" class="imageArea" alt="" id="rightColor">
+    </div>
+
+    <div class="buttonArea">
+      <div class="buttons middle">
+        <p class="readmore"><a href="#">Read more</a></p>
+      </div>
+      <div class="buttons right">
+        <p class="readmore"><a href="#" class="right">Read more</a></p>
+      </div>
+    </div>
+    <div class="buttonArea">
+      <div class="buttons middle">
+        <p class="readless"><a href="#">Read less</a></p>
+      </div>
+      <div class="buttons right">
+        <p class="readless"><a href="#" class="right">Read less</a></p>
+      </div>
+
+    </div>
+
+    <div class="textArea">
+      <img src="imgs/figure2_middleInfo.png" class="item" alt="" id="middleText">
+      <img src="imgs/figure2_rightInfo.png" class="item" alt="" id="rightText">
+    </div>
+
+
+  </div>
+
+
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script>
+    $(document).ready(function() {
+
+      //Hide text blocks
+      $('#middleText').hide()
+      $('#rightText').hide()
+      $('.readless').hide()
+
+      $('.readmore','.middle').click(function(e) {
+        e.preventDefault();
+        $('#middleText').slideDown();
+        $('.readmore').hide();
+        $('.readless', '.middle').show();
+        $('#leftColor').attr('src', 'imgs/figure2_leftGray.png');
+        $('#rightColor').attr('src', 'imgs/figure2_rightGray.png');
+      });
+
+      $('.readless','.middle').click(function(e) {
+        e.preventDefault();
+        $('#middleText').slideUp();
+        $('.readless').hide();
+        $('.readmore').show();
+        $('#leftColor').attr('src', 'imgs/figure2_leftFullColor.png');
+        $('#rightColor').attr('src', 'imgs/figure2_rightFullColor.png');
+      });
+
+      $('.readmore','.right').click(function(e) {
+        e.preventDefault();
+        $('#rightText').slideDown();
+        $('.readmore').hide();
+        $('.readless', '.right').show();
+        $('#leftColor').attr('src', 'imgs/figure2_leftGray.png');
+        $('#middleColor').attr('src', 'imgs/figure2_middleGray.png');
+      });
+
+      $('.readless','.right').click(function(e) {
+        e.preventDefault();
+        $('#rightText').slideUp();
+        $('.readless').hide();
+        $('.readmore').show();
+        $('#leftColor').attr('src', 'imgs/figure2_leftFullColor.png');
+        $('#middleColor').attr('src', 'imgs/figure2_middleFullColor.png');
+      });
+
+    });
+  </script>
+
+
+</body>
+
+</html>
